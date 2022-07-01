@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run --browser electron",
     "start:dev": "nodemon server.js",
     "start": "node server.js",
-    "eslint:init": "eslint --init"
+    "eslint:init": "eslint --init",
+    "cy:run": "cypress run"
   },
   "keywords": [],
   "author": "",

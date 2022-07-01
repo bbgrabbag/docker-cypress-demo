@@ -7,11 +7,14 @@ const server = http.createServer((req, res) => {
         filename = 'index.html';
     if (req.url === '/main.js')
         filename = 'main.js';
-    if (!filename) return res.end()
+    if (!filename) {
+        res.statusCode = 404;
+        return res.end()
+    }
     fs.readFile('./' + filename, (err, data) => {
-        if(err) {
-             res.statusCode = 500
-             return res.end();
+        if (err) {
+            res.statusCode = 500
+            return res.end();
         }
         res.write(data);
         res.end();
